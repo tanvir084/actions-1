@@ -10,11 +10,11 @@ jobs:
         - name: checkout Repo
           uses: actions/checkout@v4
         
-        - name: Install Cowssay Program
+        - name: Install Cowsay Program
           run: sudo apt-get install cowsay -y
 
         - name: Execuet Cowsay Program
-          run: cosway -f dragon "Run for cover, I am a DRAGON.....RAWR" >> dragon.txt
+          run: cowsay -f dragon "Run for cover, I am a DRAGON.....RAWR" >> dragon.txt
 
         - name: Test File Exists
           run: grep -i "dragon" dragon.txt
