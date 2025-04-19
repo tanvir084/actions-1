@@ -1,4 +1,4 @@
-name: Geenrate ASCII Artwork
+name: Generate ASCII Artwork
 
 on: 
   push
@@ -7,7 +7,7 @@ jobs:
     ascii_job: 
         runs-on: ubuntu-latest
         steps:
-        - name: checkout Repo
+        - name: Checkout Repo
           uses: actions/checkout@v4
         
         # - name: Install Cowsay Program
