@@ -14,10 +14,11 @@ jobs:
           run: cowsay -f dragon "Run for cover, I am a DRAGON.....RAWR" >> dragon.txt
         
         - name: Sleep for 30 seconds
-          run: sleep 30
+          run: sleep 15
 
 
-    test_job_2: 
+    test_job_2:
+        needs: build_job_1
         runs-on: ubuntu-latest
         steps: 
         - name: Sleep for 10 seconds
@@ -27,7 +28,8 @@ jobs:
           run: grep -i "dragon" dragon.txt
   
     deploy_job_3:
-        runs-on: ubuntu
+        needs: [build_job_1, test_job_2]
+        runs-on: ubuntu-22.04
         steps: 
         - name: Read File
           run: cat dragon.txt
